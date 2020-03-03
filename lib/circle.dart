@@ -12,14 +12,19 @@ class CircleUIConfig {
       this.borderColor = Colors.white,
       this.borderWidth = 1,
       this.fillColor = Colors.white,
-      this.circleSize = 20});
+      this.circleSize = 50});
 }
 
 class Circle extends StatelessWidget {
   final bool filled;
   final CircleUIConfig circleUIConfig;
+  final String letter;
 
-  Circle({Key key, this.filled = false, @required this.circleUIConfig})
+  Circle(
+      {Key key,
+      this.filled = false,
+      @required this.circleUIConfig,
+      this.letter})
       : super(key: key);
 
   @override
@@ -29,11 +34,18 @@ class Circle extends StatelessWidget {
       width: circleUIConfig.circleSize,
       height: circleUIConfig.circleSize,
       decoration: BoxDecoration(
-          color: filled ? circleUIConfig.fillColor : Colors.transparent,
-          shape: BoxShape.circle,
-          border: Border.all(
-              color: circleUIConfig.borderColor,
-              width: circleUIConfig.borderWidth)),
+        color: filled ? circleUIConfig.fillColor : Colors.transparent,
+        shape: BoxShape.circle,
+        border: Border.all(
+            color: circleUIConfig.borderColor,
+            width: circleUIConfig.borderWidth),
+      ),
+      child: Center(
+          child: Text(
+        this.letter,
+        style: TextStyle(color: circleUIConfig.borderColor, fontSize: 18),
+        textAlign: TextAlign.center,
+      )),
     );
   }
 }

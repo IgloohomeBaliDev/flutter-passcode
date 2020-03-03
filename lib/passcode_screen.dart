@@ -17,6 +17,7 @@ class PasscodeScreen extends StatefulWidget {
   final Color titleColor;
   final Color backgroundColor;
   final PasswordEnteredCallback passwordEnteredCallback;
+  final Widget upperWidget;
 
   //isValidCallback will be invoked after passcode screen will pop.
   final IsValidCallback isValidCallback;
@@ -43,6 +44,7 @@ class PasscodeScreen extends StatefulWidget {
     this.titleColor = Colors.white,
     this.backgroundColor,
     this.cancelCallback,
+    this.upperWidget,
   }) : super(key: key);
 
   @override
@@ -91,7 +93,7 @@ class _PasscodeScreenState extends State<PasscodeScreen> with SingleTickerProvid
               style: TextStyle(fontSize: 20, color: widget.titleColor, fontWeight: FontWeight.w300),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20, left: 60, right: 60),
+              margin: const EdgeInsets.only(top: 20, left: 40, right: 40),
               height: 40,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -123,7 +125,12 @@ class _PasscodeScreenState extends State<PasscodeScreen> with SingleTickerProvid
     var config = widget.circleUIConfig != null ? widget.circleUIConfig : CircleUIConfig();
     config.extraSize = animation.value;
     for (int i = 0; i < widget.passwordDigits; i++) {
+      String letter = "";
+      if(i <  enteredPasscode.length){
+        letter = enteredPasscode[i];
+      }
       list.add(Circle(
+        letter: letter,
         filled: i < enteredPasscode.length,
         circleUIConfig: config,
       ));
