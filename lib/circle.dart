@@ -12,7 +12,7 @@ class CircleUIConfig {
       this.borderColor = Colors.white,
       this.borderWidth = 1,
       this.fillColor = Colors.white,
-      this.circleSize = 50});
+      this.circleSize = 40});
 }
 
 class Circle extends StatelessWidget {
