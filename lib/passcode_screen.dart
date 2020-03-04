@@ -92,6 +92,7 @@ class _PasscodeScreenState extends State<PasscodeScreen> with SingleTickerProvid
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, color: widget.titleColor, fontWeight: FontWeight.w300),
             ),
+            widget.upperWidget != null ? widget.upperWidget : Container(),
             Container(
               margin: const EdgeInsets.only(top: 20, left: 40, right: 40),
               height: 40,
