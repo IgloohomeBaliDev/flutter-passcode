@@ -13,7 +13,7 @@ class KeyboardUIConfig {
   final EdgeInsetsGeometry deleteButtonMargin;
 
   KeyboardUIConfig({
-    this.digitSize = 80,
+    this.digitSize = 60,
     this.digitBorderWidth = 1,
     this.keyboardRowMargin = const EdgeInsets.only(top: 15),
     this.primaryColor = Colors.white,
